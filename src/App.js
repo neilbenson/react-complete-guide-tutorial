@@ -1,3 +1,4 @@
+import React from "react";
 import Expenses from "./components/Expenses";
 
 const App = () => {
@@ -23,7 +24,20 @@ const App = () => {
     },
   ];
 
-  return <Expenses expenses={expenses} />;
+  // Alternative to JSX code
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started"),
+  //   React.createElement(Expenses, { expenses })
+  // );
+
+  return (
+    <div>
+      <h2>Let's get started</h2>
+      <Expenses expenses={expenses} />
+    </div>
+  );
 };
 
 export default App;
