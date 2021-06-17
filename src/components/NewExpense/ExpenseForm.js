@@ -13,10 +13,19 @@ const ExpenseForm = () => {
 
     const titleChangeHandler = (event) => {
         // setEnteredTitle(event.target.value);
-        setuserInput({
-            ...userInput,
-            enteredTitle: event.target.value
+        // setuserInput({
+        //     ...userInput,
+        //     enteredTitle: event.target.value
+        // });
+        setuserInput((prevState) => {
+            return {
+                ...prevState,
+                enteredTitle: event.target.value
+            }
         });
+        // Better to do it this was as react schedules updates, and this second
+        // method React guarantees prevState will always be the latest state,
+        // fully updated. Important when state depends on the previous state.
     };
 
     const amountChangeHandler = (event) => {
